@@ -22,9 +22,9 @@ public class FollowPath : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        wpCopy = Instantiate(wpManager);
-        wps = wpCopy.GetComponent<WaypointManager>().waypoints;
-        graph = wpCopy.GetComponent<WaypointManager>().graph;
+        //wpCopy = Instantiate(wpManager);
+        wps = wpManager.GetComponent<WaypointManager>().waypoints;
+        graph = wpManager.GetComponent<WaypointManager>().graph;
         currentNode = wps[0];
         FillButtonList();
     }
