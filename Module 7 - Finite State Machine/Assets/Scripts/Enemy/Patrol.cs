@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class Patrol : NPC_BaseFSM
 {
-    GameObject[] waypoints;
     int currentWaypoint;
-    void Awake() 
-    {
-        waypoints = GameObject.FindGameObjectsWithTag("waypoint");
-    }
+    
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {

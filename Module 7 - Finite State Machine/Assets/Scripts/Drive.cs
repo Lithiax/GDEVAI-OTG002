@@ -1,15 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Drive : MonoBehaviour {
+public class Drive : UnitParent {
 
  	public float speed = 10.0F;
     public float rotationSpeed = 100.0F;
     public GameObject bullet;
+    public GameManager gameManager;
     public GameObject turret;
     float fireRate = 0.5f;
     float currentFireRate = 0;
+    protected override void OnDeath()
+    {
+        StartCoroutine(gameManager.RestartGame());
+        base.OnDeath();
+    }
 
     void Update() {
         float translation = Input.GetAxis("Vertical") * speed;

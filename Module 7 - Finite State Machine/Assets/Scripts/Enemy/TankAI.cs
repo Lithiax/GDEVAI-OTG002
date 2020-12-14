@@ -2,24 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankAI : MonoBehaviour
+public class TankAI : UnitParent
 {
-    Animator anim;
-    Health health;
     public GameObject player;
     public GameObject bullet;
     public GameObject turret;
-    void Awake()
+    public GameObject[] waypoints;
+    protected override void OnEnable() 
     {
-        anim = this.GetComponent<Animator>();
-        health = this.GetComponent<Health>();
-    }
-    void OnEnable() 
-    {
+        base.OnEnable();
         health.SendHealthInfo += SetHealthState;
     }
-    void OnDisable() 
-    {
+    protected override void OnDisable() 
+    {  
+        base.OnDisable();
         health.SendHealthInfo -= SetHealthState;
     }
     void SetHealthState()
